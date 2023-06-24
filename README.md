@@ -1,35 +1,27 @@
-# paypal-payout-process
+# Job Payout Automation
 
-Payout Process using Paypal
+This script automates the process of paying users for jobs they have completed on our platform using PayPal. The script runs on a one-hour interval and processes all jobs that have been marked as 'Accepted'.
 
-Description
-This is a Payout Process that uses PayPal to manage payouts. It performs various operations including job status checking, payout preparation, and error handling. It works with MongoDB using Mongoose for job data management and uses the Bluebird library for promise handling. It is designed to run a payout operation every hour.
+## Dependencies
 
-Installation and Setup
-Clone the repository to your local machine.
-Install the necessary dependencies with npm install.
-Dependencies
-Node.js: Server-side JavaScript runtime.
-PayPal-rest-sdk: Official PayPal SDK for Node.js.
-Bluebird: Promise library.
-Mongoose: MongoDB object modeling tool.
-Underscore.js: JavaScript utility library.
-A MongoDB database with a compatible schema is also required.
-Usage
-Ensure MongoDB is running.
-Update the config file located in the server directory with your PayPal and MongoDB details.
-Run the script using node script_name.js.
-Functions
-This script includes the following functions:
+The script requires several Node.js modules:
 
-createBatchId(): Generates a random batch ID.
-getPayoutJSONForJob(job): Prepares the payout JSON for a specific job.
-getPayoutAmountForJob(job): Calculates the payout amount for a job.
-getCutRateFor(user): Determines the cut rate for a user.
-initializePayoutJSON(): Initializes a new payout JSON object.
-createPayouts(jobs, payoutJSON): Creates payouts for all accepted jobs.
-saveJobsAndOwners(jobs): Saves all updated job statuses and owners.
-processPayouts(): Main function for processing payouts at an interval.
+- **Underscore.js**: Provides utility functions for working with JavaScript objects and arrays.
+- **PayPal REST SDK**: Provides a way to interact with the PayPal API and make payouts.
+- **Bluebird**: A promises library used to handle asynchronous code.
+- **Mongoose**: A MongoDB object modeling tool to handle database transactions.
 
-License
-This project is licensed under the terms of the MIT license.
+## Usage
+
+This script is meant to be run as a background process on a server. It can be started with any process manager, such as PM2 or Forever.
+
+Ensure that you have correctly configured your PayPal and MongoDB details in the `../server/config` file before running the script.
+
+## Functions
+
+The script includes several utility functions:
+
+- `createBatchId()`: Generates a unique batch ID for each payout.
+- `getPayoutJSONForJob(job)`: Constructs a `payoutJSON` object for a given job, which is sent to PayPal to create the payout.
+- `getPayoutAmountForJob(job)`: Calculates the payout amount for a given job, based on the cost and the cut rate of the user.
+- `getCutRateFor(user)`: Determines the cut rate for a user based on their promotions and feedbacks.
