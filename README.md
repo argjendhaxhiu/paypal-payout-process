@@ -3,7 +3,7 @@
 Payout Process using Paypal
 
 Description
-This project is a Payout Daemon that uses PayPal to manage payouts. It performs various operations including job status checking, payout preparation, and error handling. It works with MongoDB using Mongoose for job data management and uses the Bluebird library for promise handling. It is designed to run a payout operation every hour.
+This is a Payout Process that uses PayPal to manage payouts. It performs various operations including job status checking, payout preparation, and error handling. It works with MongoDB using Mongoose for job data management and uses the Bluebird library for promise handling. It is designed to run a payout operation every hour.
 
 Installation and Setup
 Clone the repository to your local machine.
