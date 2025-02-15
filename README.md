@@ -1,6 +1,6 @@
 # Job Payout Automation
 
-This script automates the process of paying users for jobs they have completed on our platform using PayPal. The script runs on a one-hour interval and processes all jobs that have been marked as 'Accepted'.
+This script automates the process of paying users for jobs they have completed on a platform using PayPal. The script runs on a one-hour interval and processes all jobs that have been marked as 'Accepted'.
 
 ## Dependencies
 
